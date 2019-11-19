@@ -1,0 +1,27 @@
+class Solution {
+    public int lengthOfLIS(int[] nums) {
+        int arr[] = new int[nums.length];
+      if(nums.length==0) {
+          return 0;
+      }
+      for ( int i = 0; i < nums.length; i++ ) 
+              arr[i] = 1; 
+        int result = 1;
+  
+        for (int i   =1; i<nums.length ; i++) {
+            for (int j =0 ; j<i ; j++) {
+                if(nums[i]>nums[j]) {
+                    
+                    arr[i] =Math.max(1+arr[j],arr[i]); 
+                    result = Math.max(result,arr[i]);
+                } 
+                
+            }
+        }
+        for (int  g :arr) {
+            System.out.print(g+" ");
+        }
+        
+        return result;
+    }
+}
